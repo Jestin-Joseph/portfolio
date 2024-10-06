@@ -1,0 +1,396 @@
+.MainView_container {
+    // background-color: red;
+    // position: absolute;
+    height: 100%;
+}
+
+.intro_container {
+    padding: 1rem;
+    // border: 1px solid green;
+    border-radius: 0 0 2.25rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    // align-items: center;
+    .cvBtn{
+        display: none;
+    }
+    .my_pic {
+        align-self: center;
+        margin-top: 10%;
+        width: 17rem;
+        height: 17rem;
+        border-radius: 50%;
+        // border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            max-width: 100%;
+            margin-top: -40%;
+            margin-left: 5%;
+            transform: scale(1.7);
+        }
+    }
+
+    .name_intro_container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .name {
+        // border: 1px solid green;
+        display: flex;
+        flex-direction: column;
+
+        // border: 1px solid green;
+        p {
+            font-size: 2.5rem;
+            font-weight: 900;
+            // border: 1px solid red;
+            margin: 0;
+        }
+
+        .my_name {
+            color: #F61D00;
+        }
+    }
+
+    .description {
+        // border: 1px solid blue;
+        font-size: 1.5rem;
+    }
+
+}
+
+.services_container {
+    // border-radius: 0 0 2.25rem 2.25rem;
+    padding: 3.2rem 1rem 1rem;
+    // border-radius: 2.25rem;
+    background-color: #F5F5F0;
+    position: relative;
+
+    .service_heading {
+        font-size: 1.7rem;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        margin-top: 2%;
+
+    }
+
+    .services_list {
+        // border: 1px solid black;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+    }
+}
+
+.services_container:before {
+    content: "";
+    background-color: white;
+    height: 2.25rem;
+    width: 2.25rem;
+    position: absolute;
+    top: 0rem;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    border-radius: 0 0 2.5rem 2.5rem;
+
+}
+
+.services_container::after {
+    content: "";
+    /* Required for pseudo-element */
+    background-color: #F5F5F0;
+    // border: 1px solid red;
+    height: 2.25rem;
+    width: 2.25rem;
+    position: absolute;
+    bottom: -2rem;
+    border-radius: 0 0 2.5rem 2.5rem;
+    width: 100%;
+    right: 0;
+    /* Set position */
+    z-index: 999;
+
+}
+
+.tools_container {
+    padding: 3rem 1rem 0;
+    position: relative;
+
+    // border: 1px solid red;
+    .tools_heading {
+        font-size: 1.7rem;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        margin-top: 2%;
+        margin-bottom: 1rem;
+        // border: 1px solid black;
+    }
+
+    .tools_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        justify-items: center;
+        align-items: center;
+        padding: 1rem;
+        align-content: center;
+        // margin-bottom: -1rem;
+
+        .tool_logo {
+            width: 3.4rem;
+            height: 3.4rem;
+            overflow: hidden;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+    }
+}
+
+.tools_container::after {
+    content: "";
+    /* Required for pseudo-element */
+    background-color: #fff;
+    // border: 1px solid red;
+    height: 2.25rem;
+    width: 2.25rem;
+    position: absolute;
+    bottom: -2rem;
+    border-radius: 0 0 2.5rem 2.5rem;
+    width: 100%;
+    right: 0;
+    /* Set position */
+    z-index: 999;
+}
+
+.works_container {
+    background-color: #F5F5F0;
+    padding: 3rem 1rem;
+    position: relative;
+
+    .works_heading {
+        font-size: 1.7rem;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        margin-top: 2%;
+        margin-bottom: 1rem;
+        // border: 1px solid black;
+    }
+
+    .works_list {
+        // border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        gap: 2rem;
+    }
+}
+
+.works_container::after {
+    content: "";
+    /* Required for pseudo-element */
+    background-color: #F5F5F0;
+    // border: 1px solid red;
+    height: 2.25rem;
+    width: 2.25rem;
+    position: absolute;
+    bottom: -2rem;
+    border-radius: 0 0 2.5rem 2.5rem;
+    width: 100%;
+    right: 0;
+    /* Set position */
+    z-index: 999;
+}
+
+.contact_container {
+    padding: 3rem 1rem;
+
+    .contact_heading {
+        font-size: 1.7rem;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        margin-top: 2%;
+        margin-bottom: 1rem;
+    }
+
+    .details{
+        .details_heading{
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    }
+
+    
+
+}
+
+.copyRights{
+    text-align: center;
+    padding: 0rem 0rem 1rem;
+    color: #9e9e9e;
+}
+
+@media only screen and (min-width: 1024px) {
+    .intro_container {
+        // border: 1px solid red;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 12rem;
+        padding: 3rem;
+
+        .cvBtn{
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 2rem;
+            padding: 0.3rem;
+            width: 5rem;
+            border-radius: 2.25rem;
+            border: none;
+            // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            // box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+            background-color: white;
+            font-weight: 600;
+            color: #4d4d4d;
+            transition: all 0.5s;
+            cursor: pointer;
+
+            &:hover{
+                color: black;
+                width: 5.2rem;
+                font-size: 0.9rem;
+                // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            }
+        }
+        .my_pic {
+            width: 22rem;
+            height: 22rem;
+            margin: auto 0px;
+        }
+
+        .name_intro_container {
+            // border: 1px solid yellow;
+            width: 25rem;
+        }
+
+        .name {
+            p {
+                font-size: 3.2rem;
+            }
+        }
+
+        .description {
+            font-size: 2.4rem;
+        }
+    }
+
+    .services_container {
+        .service_heading {
+            // border: 1px solid red;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .services_list {
+            // border: 1px solid red;
+            margin: 5%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .tools_container {
+        .tools_heading {
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        padding-bottom: 1.5rem;
+
+        .tools_list {
+            // border: 1px solid red;
+            margin: 3%;
+            display: flex;
+            justify-content: space-around;
+
+            // padding: 0;
+            .tool_logo {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+    }
+
+    .works_container {
+        .works_heading {
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .works_list {
+            margin: 3%;
+            // padding-left: 2rem;
+            // display: grid;
+            // grid-template-columns: repeat(3, 1fr);
+            // grid-column-gap: 2rem;
+            flex-direction: row;
+            // border: 1px solid red;
+            justify-content: space-around;
+
+        }
+    }
+
+    .contact_container {
+        .contact_heading {
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        display: flex;
+        flex-direction: column;
+
+        
+
+        .contact_form {
+            margin: 3%;
+            display: flex;
+            justify-content: space-around;
+            // align-items: center;
+            gap: 1rem;
+            .form{
+                width: 50%;
+            }
+            .or{
+                font-size: 2rem;
+                color: #9e9e9e;
+            }
+
+            .details{
+                height: 100%;
+                width: 50%;
+                .details_heading{
+                    font-size: 1.7rem;
+                }
+            }
+        }
+    }
+}

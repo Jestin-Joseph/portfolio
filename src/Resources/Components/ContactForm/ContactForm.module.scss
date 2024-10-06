@@ -1,0 +1,61 @@
+%inputStyles {
+    padding: 1rem;
+    border: transparent;
+    background-color: #F5F5F0;
+    border-radius: 0.6rem;
+}
+
+.contatForm_container {
+    // border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+
+    gap: 1rem;
+
+    .name {
+        display: flex;
+        gap: 1rem;
+
+        input {
+            @extend %inputStyles;
+            box-sizing: border-box; // Ensures padding and borders are included in width
+            width: 100%;
+        }
+    }
+
+    .email {
+        // border: 1px solid red;
+        width: 100%;
+
+        // overflow: hidden;
+        input {
+            @extend %inputStyles;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+    .message {
+        @extend %inputStyles;
+        resize: none;
+        height: 3rem;
+    }
+
+    .talkButton {
+        // border: 1px solid red;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .contatForm_container {
+        height: fit-content;
+        // height: 10rem; 
+        .message{
+            height: 8rem;
+        }
+    }
+}
