@@ -6,11 +6,12 @@
 
 .intro_container {
     padding: 1rem;
-    // border: 1px solid green;
-    border-radius: 0 0 2.25rem 2.25rem;
+    // border-radius: 0 0 2.25rem 2.25rem;
+    border-bottom-left-radius: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: white;
     gap: 2rem;
     // align-items: center;
     .cvBtn{
@@ -60,15 +61,25 @@
     .description {
         // border: 1px solid blue;
         font-size: 1.5rem;
+        
     }
+
+    .talk_button{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+    
 
 }
 
 .services_container {
-    // border-radius: 0 0 2.25rem 2.25rem;
+    border-top-right-radius: 5rem;
+    border-bottom-right-radius: 5rem;
     padding: 3.2rem 1rem 1rem;
     // border-radius: 2.25rem;
-    background-color: #F5F5F0;
+    background-color: #F2F4F4;
+    
     position: relative;
 
     .service_heading {
@@ -76,6 +87,8 @@
         font-weight: 600;
         font-family: "Poppins", sans-serif;
         margin-top: 2%;
+        // border: 1px solid red;
+        text-align: center;
 
     }
 
@@ -85,52 +98,57 @@
         display: flex;
         flex-direction: column;
         gap: 3rem;
+        margin-bottom: 1rem;
 
     }
 }
 
 .services_container:before {
     content: "";
-    background-color: white;
+    // border: 1px solid red;
+    background-color: #F2F4F4;
     height: 2.25rem;
     width: 2.25rem;
     position: absolute;
-    top: 0rem;
+    top: -5rem;
     left: 0;
-    z-index: 999;
-    width: 100%;
-    border-radius: 0 0 2.5rem 2.5rem;
+    z-index: -1;
+    height: 20%;
+    width: 20%;
+    // border-radius:  0 2.5rem;
 
 }
 
 .services_container::after {
     content: "";
     /* Required for pseudo-element */
-    background-color: #F5F5F0;
-    // border: 1px solid red;
+    background-color: #F2F4F4;
+    // border: 1px solid green;
     height: 2.25rem;
     width: 2.25rem;
     position: absolute;
-    bottom: -2rem;
-    border-radius: 0 0 2.5rem 2.5rem;
-    width: 100%;
-    right: 0;
+    bottom: -5rem;
+    width: 20%;
+    height: 20%;
+    left: 0;
     /* Set position */
-    z-index: 999;
+    z-index: -1;
 
 }
 
 .tools_container {
     padding: 3rem 1rem 0;
     position: relative;
-
-    // border: 1px solid red;
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+    background-color: white;
     .tools_heading {
         font-size: 1.7rem;
         font-weight: 600;
         font-family: "Poppins", sans-serif;
         margin-top: 2%;
         margin-bottom: 1rem;
+        text-align: center;
         // border: 1px solid black;
     }
 
@@ -143,7 +161,7 @@
         padding: 1rem;
         align-content: center;
         // margin-bottom: -1rem;
-
+        
         .tool_logo {
             width: 3.4rem;
             height: 3.4rem;
@@ -160,30 +178,34 @@
 .tools_container::after {
     content: "";
     /* Required for pseudo-element */
-    background-color: #fff;
-    // border: 1px solid red;
-    height: 2.25rem;
-    width: 2.25rem;
+    background-color: #F2F4F4;
+    // height: 2.25rem;
+    // width: 2.25rem;
     position: absolute;
-    bottom: -2rem;
-    border-radius: 0 0 2.5rem 2.5rem;
-    width: 100%;
-    right: 0;
+    bottom: 0rem;
+//    border: 1px solid red;
+    width: 20%;
+    height: 20%;
+    left: 0;
     /* Set position */
-    z-index: 999;
+    z-index: -1;
 }
 
 .works_container {
-    background-color: #F5F5F0;
+    background-color: #F2F4F4;
     padding: 3rem 1rem;
     position: relative;
-
+    border-top-right-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    // border: 1px solid red;
     .works_heading {
+        // border: 1px solid red;
         font-size: 1.7rem;
         font-weight: 600;
         font-family: "Poppins", sans-serif;
         margin-top: 2%;
         margin-bottom: 1rem;
+        text-align: center;
         // border: 1px solid black;
     }
 
@@ -200,28 +222,28 @@
 .works_container::after {
     content: "";
     /* Required for pseudo-element */
-    background-color: #F5F5F0;
-    // border: 1px solid red;
-    height: 2.25rem;
-    width: 2.25rem;
+    background-color: #F2F4F4;
+    
     position: absolute;
-    bottom: -2rem;
-    border-radius: 0 0 2.5rem 2.5rem;
-    width: 100%;
-    right: 0;
+    bottom: -4rem;
+    width: 20%;
+    height: 10%;
+    left: 0;
     /* Set position */
-    z-index: 999;
+    z-index: -1;
 }
 
 .contact_container {
     padding: 3rem 1rem;
-
+    background-color: white;
+    border-top-left-radius: 5rem;
     .contact_heading {
         font-size: 1.7rem;
         font-weight: 600;
         font-family: "Poppins", sans-serif;
         margin-top: 2%;
         margin-bottom: 1rem;
+        text-align: center;
     }
 
     .details{
@@ -297,6 +319,9 @@
         .description {
             font-size: 2.4rem;
         }
+        .talk_button{
+            justify-content: flex-start;
+        }
     }
 
     .services_container {
@@ -347,11 +372,13 @@
 
         .works_list {
             margin: 3%;
+            
             // padding-left: 2rem;
             // display: grid;
             // grid-template-columns: repeat(3, 1fr);
             // grid-column-gap: 2rem;
-            flex-direction: row;
+            flex-direction: column;
+            gap: 5rem;
             // border: 1px solid red;
             justify-content: space-around;
 

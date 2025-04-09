@@ -27,7 +27,7 @@ function MainView() {
                     className={styles.cvBtn}
                     onClick={
                         () => {
-                            window.open('https://drive.google.com/file/d/1_Jf9z983NMji2t_0o5x_5O8UQyvsdnFw/view', '_blank');
+                            window.open('https://drive.google.com/file/d/18uvFF7k97drgRbhP_saTggAfaWMVv0pq/view?usp=drive_link', '_blank');
                         }}
                 >
                     CV
@@ -51,15 +51,17 @@ function MainView() {
                             I am <strong>Software Engineer</strong> from India, currently based in Chicago, United States
                         </p>
                     </div>
-                    <JButton
-                        buttonText={"Let's Talk"}
-                        functionCall={() => {
-                            const navigateTo = document.getElementById("contact-form");
-                            if (navigateTo) {
-                                navigateTo.scrollIntoView({ behavior: "smooth" });
-                            }
-                        }}
-                    />
+                    <span className={styles.talk_button}>
+                        <JButton
+                            buttonText={"Let's Talk"}
+                            functionCall={() => {
+                                const navigateTo = document.getElementById("contact-form");
+                                if (navigateTo) {
+                                    navigateTo.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                        />
+                    </span>
                 </span>
             </div>
             <div className={styles.services_container}>
@@ -109,9 +111,12 @@ function MainView() {
                         works.map((work, index) => {
                             return (
                                 <WorkCard
+                                    key={work.id}
+                                    number = {index+1}
                                     thumbnail={work.icon}
                                     title={work.title}
                                     desc={work.desc}
+                                    date={work.date}
                                 />
                             )
                         })
@@ -126,7 +131,7 @@ function MainView() {
 
                         <ContactForm />
                     </div>
-                    <hr class='solid' />
+                    <hr className='solid' />
                     {/* <p className={styles.or}>OR</p> */}
                     <div className={styles.details}>
                         <p className={styles.details_heading}>Contact Me</p>
