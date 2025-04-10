@@ -18,6 +18,11 @@ import pyIcon from "../../assets/icons/original python.png";
 import figIcon from "../../assets/icons/original figma.png";
 import goIcon from "../../assets/icons/go.png"
 
+//icons
+import { MailOpen } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
+
 function MainView() {
 
     return (
@@ -89,7 +94,7 @@ function MainView() {
                     <span className={styles.tool_logo}>
                         <img src={reactIcon} alt="icon" />
                     </span>
-                    <span className={styles.tool_logo} style={{width:"4.8rem", height:"4.8rem"}}>
+                    <span className={styles.tool_logo} style={{ width: "4.8rem", height: "4.8rem" }}>
                         <img src={goIcon} alt="icon" />
                     </span>
                     <span className={styles.tool_logo}>
@@ -101,7 +106,7 @@ function MainView() {
                     <span className={styles.tool_logo}>
                         <img src={figIcon} alt="icon" />
                     </span>
-                    
+
                 </div>
             </div>
             <div className={styles.works_container}>
@@ -112,7 +117,7 @@ function MainView() {
                             return (
                                 <WorkCard
                                     key={work.id}
-                                    number = {index+1}
+                                    number={index + 1}
                                     thumbnail={work.icon}
                                     title={work.title}
                                     desc={work.desc}
@@ -134,11 +139,38 @@ function MainView() {
                     <hr className='solid' />
                     {/* <p className={styles.or}>OR</p> */}
                     <div className={styles.details}>
-                        <p className={styles.details_heading}>Contact Me</p>
-                        <div>
-                            <p><strong>E-mail:</strong> jestinjoseph106@gmail.com</p>
-                            <p><strong>Mobile:</strong> +1 (312)-371-1451</p>
+                        <div className={styles.details_type}>
+                            <span>
+                                <MailOpen />
+                            </span>
+                            <span>
+                                <p>Email me</p>
+                                <p>jestinjoseph106@gmail.com</p>
+                            </span>
                         </div>
+                        <div className={styles.details_type}>
+                            <span>
+                                <Phone />
+                            </span>
+                            <span>
+                                <p>Call/ Text me</p>
+                                <p className={styles.call_timing}>Mon - Fri from 8am to 5pm</p>
+                                <p>+1 (312) - 371 - 1452</p>
+                            </span>
+
+                        </div>
+                        <div className={styles.details_type}>
+                            <span>
+                                <Linkedin />
+                            </span>
+                            <span>
+                                <p>Ping me</p>
+                                <p>
+                                    <a href="https://www.linkedin.com/in/jestin-joseph01/" target="blank">LinkedIn</a>: Jestin Joseph
+                                </p>
+                            </span>
+                        </div>
+
                     </div>
                 </div>
             </div>

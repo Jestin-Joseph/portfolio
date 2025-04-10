@@ -1,5 +1,4 @@
 import styles from "./WorkCard.module.scss";
-import JButton from "../JButton/JButton";
 
 function WorkCard({ date, number, thumbnail, desc, title }) {
     return (
