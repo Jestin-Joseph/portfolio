@@ -1,5 +1,7 @@
 import styles from "./MainView.module.scss";
 import me from "../../assets/image/me.jpg";
+import { ThemeToggle } from "../ThemeSettings/ThemeToggle";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 //components
 import JButton from "../Components/JButton/JButton";
@@ -23,158 +25,76 @@ import { MailOpen } from 'lucide-react';
 import { Phone } from 'lucide-react';
 import { Linkedin } from 'lucide-react';
 
-function MainView() {
 
+
+function MainView() {
+    const navigate = useNavigate();
+    const location = useLocation()
+    const menuItems = [
+        { name: 'Home', path: '/home' },
+        { name: 'About', path: '/about' },
+        { name: 'Resume', path: '/resume' },
+    ];
     return (
         <div className={styles.MainView_container}>
+            <header>
+                <div className={styles.myImage_icon}>
+                    <img src={me} alt="me icon" />
+                </div>
+                <div className={styles.navItems}>
+                    {
+                        menuItems.map((menuItem) => (
+                            <button
+                                key={menuItem.name}
+                                onClick={() => { navigate(menuItem.path) }}
+                                style={{ color: location.pathname === menuItem.path ? 'var(----menu-items-selected)' : '' }}
+
+                            >
+                                {menuItem.name}
+                            </button>
+                        ))
+                    }
+
+                </div>
+                <ThemeToggle />
+            </header>
             <div className={styles.intro_container}>
-                <button
-                    className={styles.cvBtn}
-                    onClick={
-                        () => {
-                            window.open('https://drive.google.com/file/d/18uvFF7k97drgRbhP_saTggAfaWMVv0pq/view?usp=drive_link', '_blank');
-                        }}
-                >
-                    CV
-
-                </button>
-                <div className={styles.my_pic}>
-                    <img src={me} alt="this is me" />
+                <div className={styles.intro_para}>
+                    <p>Hello, I'm Jestin Joseph</p>
+                    <p>A passionate Software Engineer from India, currently based in Chicago, Illinois. I Specialize in building scalable
+                        <strong>web applications</strong> and crafting clean, <strong>efficient code</strong>. With a strong foundation in
+                        <strong>full-stack development</strong> and a keen interest in solving real-world problems through technology, I love
+                        turning ideas into impactful digital experiences.
+                    </p>
                 </div>
-                <span className={styles.name_intro_container}>
-
-                    <div className={styles.name}>
-                        <p>
-                            Hello! I'm
-                        </p>
-                        <p className={styles.my_name}>
-                            Jestin Joseph
-                        </p>
+                <div className={styles.intro_pic_container}>
+                    <div className={styles.intro_pic}>
+                        <img src={me} alt="my imgae" />
                     </div>
-                    <div className={styles.description}>
-                        <p>
-                            I am <strong>Software Engineer</strong> from India, currently based in Chicago, United States
-                        </p>
-                    </div>
-                    <span className={styles.talk_button}>
-                        <JButton
-                            buttonText={"Let's Talk"}
-                            functionCall={() => {
-                                const navigateTo = document.getElementById("contact-form");
-                                if (navigateTo) {
-                                    navigateTo.scrollIntoView({ behavior: "smooth" });
-                                }
-                            }}
-                        />
-                    </span>
-                </span>
-            </div>
-            <div className={styles.services_container}>
-
-                <p className={styles.service_heading}>What do I do?</p>
-                <div className={styles.services_list}>
-                    {
-                        services_given?.map((data, index) => {
-                            return (
-                                <ServicesCard
-                                    key={data.id}
-                                    icon={data.icon}
-                                    title={data.title}
-                                    desc={data.desc}
-                                />
-                            )
-                        })
-                    }
-
+                    <svg viewBox="0 0 200 200" class={styles.text_circle}>
+                        <defs>
+                            <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"  />
+                        </defs>
+                        <text font-size="5.5" fill='var(--menu-items-selected)'>
+                            <textPath href="#circlePath" startOffset="0">
+                            • FULL STACK DEVELOPER • BASED IN CHICAGO 
+                            </textPath>
+                        </text>
+                    </svg>
+                    {/* <svg viewBox="0 0 200 200" class={styles.text_circle} style={{ transform: "rotate(180deg)" }}>
+                        <defs>
+                            <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+                        </defs>
+                        <text font-size="6" fill='var(--menu-items-selected)'>
+                            <textPath href="#circlePath" startOffset="50%" >
+                            • BASED IN CHICAGO •
+                            </textPath>
+                        </text>
+                    </svg> */}
                 </div>
+
+
             </div>
-            <div className={styles.tools_container}>
-                <p className={styles.tools_heading}>Tools used</p>
-                <div className={styles.tools_list}>
-                    <span className={styles.tool_logo}>
-                        <img src={reactIcon} alt="icon" />
-                    </span>
-                    <span className={styles.tool_logo} style={{ width: "4.8rem", height: "4.8rem" }}>
-                        <img src={goIcon} alt="icon" />
-                    </span>
-                    <span className={styles.tool_logo}>
-                        <img src={nodeIcon} alt="icon" />
-                    </span>
-                    <span className={styles.tool_logo}>
-                        <img src={pyIcon} alt="icon" />
-                    </span>
-                    <span className={styles.tool_logo}>
-                        <img src={figIcon} alt="icon" />
-                    </span>
-
-                </div>
-            </div>
-            <div className={styles.works_container}>
-                <p className={styles.works_heading}>My works</p>
-                <div className={styles.works_list}>
-                    {
-                        works.map((work, index) => {
-                            return (
-                                <WorkCard
-                                    key={work.id}
-                                    number={index + 1}
-                                    thumbnail={work.icon}
-                                    title={work.title}
-                                    desc={work.desc}
-                                    date={work.date}
-                                />
-                            )
-                        })
-                    }
-
-                </div>
-            </div>
-            <div id="contact-form" className={styles.contact_container}>
-                <p className={styles.contact_heading}>Let's Talk!</p>
-                <div className={styles.contact_form}>
-                    <div className={styles.form}>
-
-                        <ContactForm />
-                    </div>
-                    <hr className='solid' />
-                    {/* <p className={styles.or}>OR</p> */}
-                    <div className={styles.details}>
-                        <div className={styles.details_type}>
-                            <span>
-                                <MailOpen />
-                            </span>
-                            <span>
-                                <p>Email me</p>
-                                <p>jestinjoseph106@gmail.com</p>
-                            </span>
-                        </div>
-                        <div className={styles.details_type}>
-                            <span>
-                                <Phone />
-                            </span>
-                            <span>
-                                <p>Call/ Text me</p>
-                                <p className={styles.call_timing}>Mon - Fri from 8am to 5pm</p>
-                                <p>+1 (312) - 371 - 1452</p>
-                            </span>
-
-                        </div>
-                        <div className={styles.details_type}>
-                            <span>
-                                <Linkedin />
-                            </span>
-                            <span>
-                                <p>Ping me</p>
-                                <p>
-                                    <a href="https://www.linkedin.com/in/jestin-joseph01/" target="blank">LinkedIn</a>: Jestin Joseph
-                                </p>
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <p className={styles.copyRights}> &copy; Copyright, 2024 Jestin Joseph</p>
         </div>
     )
 }

@@ -1,3 +1,19 @@
+:root {
+  --background-color: white;
+  --text-color: black;
+  --menu-items-primary: #898989;
+  --menu-items-selected: black;
+  /* ... other light theme variables */
+}
+
+[data-theme='dark'] {
+  --background-color: #1a1a1a;
+  --text-color: white;
+  --menu-items-primary: #9f9f9f;
+  --menu-items-selected: white;
+  /* ... other dark theme variables */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +21,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
 }
 
 code {
