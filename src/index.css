@@ -3,7 +3,8 @@
   --text-color: black;
   --menu-items-primary: #898989;
   --menu-items-selected: black;
-  /* ... other light theme variables */
+  --skill-item-border: rgba(222, 222, 222, 1);
+  --skill-item-number-background: rgba(242, 255, 240, 1);
 }
 
 [data-theme='dark'] {
@@ -11,7 +12,8 @@
   --text-color: white;
   --menu-items-primary: #9f9f9f;
   --menu-items-selected: white;
-  /* ... other dark theme variables */
+  --skill-item-border: rgba(65, 65, 65, 1);
+  --skill-item-number-background: rgba(242, 255, 240, 1);
 }
 
 body {

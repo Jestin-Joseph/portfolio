@@ -1,68 +1,78 @@
 .workCard_container {
-    // border: 1px solid red;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    box-sizing: border-box;
+
     // cursor: pointer;
 }
 
 .workHead {
-    box-sizing: border-box;
-    width: 100%;
-    
-    .title_date{
-        margin-bottom: 1rem;
-        p{
-            margin: 0;
-        }
-        .title {
-            font-weight: 600;
-            font-size: 1.5rem;
-            
-        }
+    width: 55em;
 
-        .date{
-            font-style: italic;
-            font-size: 0.9rem;
-            color: rgb(63, 63, 246);
-        }
-    
+    img {
+        width: 100%;
+        object-fit: cover;
+
     }
-  
-    .work_thumbnail {
-        margin-top: 0.25rem;
-        width: 60%; /* Ensures the container spans the full width */
-        max-height: 20em; /* Restricts the height */
-        overflow-y: auto; /* Enables vertical scrolling */
-        box-sizing: border-box;
+}
+
+.workDesc_container {
+    width: 55em;
+    margin-top: 1em;
+
+    .title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: var(--menu-items-selected);
+        margin: 0;
+    }
+
+    desc {
+        color: var(--menu-items-primary);
+        font-weight: 500;
+        font-family: "Work Sans", sans-serif;
+        font-style: medium;
+    }
+
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .workCard_container {
+        // border: 1px solid red;
+    }
+    .workHead {
+        width: 100%;
 
         img {
-            height: auto;
             width: 100%;
-            display: block;
             object-fit: cover;
-            display: flex;
-            object-position: top;
-            
-            &:hover{
-                // opacity: 0.7;
-            }
-            
+
         }
     }
-}
 
-.workDesc_container{
-   
-    // border: 1px solid red;
-    p{
-        margin-top: 1rem;
-        color: grey;
-        font-weight: 400;
+    .workDesc_container {
+        width: 100%;
+        margin-top: 1em;
+
+        .title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--menu-items-selected);
+            margin: 0;
+        }
+
+        desc {
+            color: var(--menu-items-primary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            font-family: "Work Sans", sans-serif;
+            font-style: medium;
+        }
+
     }
 
-}
-
-@media only screen and (min-width: 1024px) {
-    .workCard_container{
-        width: 60%;
-    }
 }
