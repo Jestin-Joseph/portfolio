@@ -6,7 +6,7 @@ import { useState } from "react";
 
 //components
 import WorkCard from "../Components/WorkCard/WorkCard";
-import ContactForm from "../Components/ContactForm/ContactForm";
+// import ContactForm from "../Components/ContactForm/ContactForm";
 import MobileMenu from "../Components/MobileMenu/MobileMenu";
 import SkillItem from "../Components/SkillsContainer/SkillsContainer";
 
@@ -25,6 +25,7 @@ import { Menu } from 'lucide-react';
 
 // Project Data
 import TaskManagerImg from "../../assets/screenshots/TaskManagerThumbnail.png"
+import PillAngelImg from "../../assets/screenshots/PillAngelThumbnail.png"
 import Footer from "../Components/Footer/Footer";
 
 export const menuItems = [
@@ -143,6 +144,11 @@ function MainView() {
                 </div>
 
                 <div className={styles.projects_item_containter}>
+                    <WorkCard
+                        thumbnail={PillAngelImg}
+                        title="Pill Angel – Smart Medication Companion"
+                        desc="Pill Angel is a full-stack healthcare application designed to help patients and caregivers better understand and organize medications. Users can upload prescriptions, simplify dosage instructions into plain language, track medications, and stay on top of daily schedules through an intuitive and accessible interface."
+                    />
                     <WorkCard
                         thumbnail={TaskManagerImg}
                         title="TaskIt - Task Management Application"
