@@ -1,15 +1,15 @@
 import styles from "./MainView.module.scss";
 import me from "../../assets/image/me.jpg";
+import { ThemeToggle } from "../ThemeSettings/ThemeToggle";
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState } from "react";
 
 //components
-import JButton from "../Components/JButton/JButton";
-import ServicesCard from "../Components/ServicesCard/ServicesCard";
 import WorkCard from "../Components/WorkCard/WorkCard";
-import ContactForm from "../Components/ContactForm/ContactForm";
+// import ContactForm from "../Components/ContactForm/ContactForm";
+import MobileMenu from "../Components/MobileMenu/MobileMenu";
+import SkillItem from "../Components/SkillsContainer/SkillsContainer";
 
-//data
-import { services_given } from "../Data/services";
-import { works } from "../Data/works";
 
 //images
 import nodeIcon from "../../assets/icons/original node.png";
@@ -17,164 +17,147 @@ import reactIcon from "../../assets/icons/original react.png";
 import pyIcon from "../../assets/icons/original python.png";
 import figIcon from "../../assets/icons/original figma.png";
 import goIcon from "../../assets/icons/go.png"
+import flutterIcon from "../../assets/icons/flutterLogo.png";
 
 //icons
-import { MailOpen } from 'lucide-react';
-import { Phone } from 'lucide-react';
-import { Linkedin } from 'lucide-react';
+import BulletPoint from "../Components/BulletPoint/BulletPoint";
+import { Menu } from 'lucide-react';
+
+// Project Data
+import TaskManagerImg from "../../assets/screenshots/TaskManagerThumbnail.png"
+import PillAngelImg from "../../assets/screenshots/PillAngelThumbnail.png"
+import Footer from "../Components/Footer/Footer";
+
+export const menuItems = [
+    { name: 'Home', path: '/home' },
+    { name: 'About', path: '/about' },
+    { name: 'Resume', navigate: 'https://docs.google.com/document/d/1KrtrsKs81BOYyYQ4hHK8AhTak1TIKttWZYO3wL8rEAk/edit?usp=sharing' },
+];
 
 function MainView() {
+    const navigate = useNavigate();
+    const location = useLocation()
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
 
     return (
         <div className={styles.MainView_container}>
-            <div className={styles.intro_container}>
-                <button
-                    className={styles.cvBtn}
-                    onClick={
-                        () => {
-                            window.open('https://drive.google.com/file/d/18uvFF7k97drgRbhP_saTggAfaWMVv0pq/view?usp=drive_link', '_blank');
-                        }}
-                >
-                    CV
+            {/* header desktop view */}
+            <header>
+                <div className={styles.myImage_icon}>
+                    <img src={me} alt="me icon" />
+                </div>
+                <div className={styles.navItems}>
+                    {
+                        menuItems.map((menuItem) => (
+                            <button
+                                key={menuItem.name}
+                                onClick={() => { menuItem.path ? navigate(menuItem.path) : window.open(menuItem.navigate, '_blank') }}
+                                style={{ color: location.pathname === menuItem.path ? 'var(----menu-items-selected)' : '' }}
 
+                            >
+                                {menuItem.name}
+                            </button>
+                        ))
+                    }
+
+                </div>
+                <ThemeToggle />
+            </header>
+            {/* header mobile view */}
+            <header2>
+                <button onClick={() => { setIsMobileMenuOpen(true) }}>
+                    <Menu />
                 </button>
-                <div className={styles.my_pic}>
-                    <img src={me} alt="this is me" />
+                <div className={styles.myImage_icon}>
+                    <img src={me} alt="me icon" />
                 </div>
-                <span className={styles.name_intro_container}>
-
-                    <div className={styles.name}>
-                        <p>
-                            Hello! I'm
-                        </p>
-                        <p className={styles.my_name}>
-                            Jestin Joseph
-                        </p>
+                {isMobileMenuOpen && <MobileMenu closeMenu={() => { setIsMobileMenuOpen(false) }} />}
+            </header2>
+            {/* intro section - pic and intro paragraph */}
+            <div className={styles.intro_container}>
+                <div className={styles.intro_para}>
+                    <p className={styles.hello_container}>
+                        <span> Hello, </span>
+                        <span>I'm Jestin Joseph</span></p>
+                    <p className={styles.about_container}>A passionate Software Engineer from India, currently based in Chicago, Illinois. I Specialize in building scalable
+                        <strong>web applications</strong> and crafting clean, <strong>efficient code</strong>. With a strong foundation in
+                        <strong> full-stack development</strong> and a keen interest in solving real-world problems through technology, I love
+                        turning ideas into impactful digital experiences.
+                    </p>
+                </div>
+                <div className={styles.intro_pic_container}>
+                    <div className={styles.intro_pic}>
+                        <img src={me} alt="my imgae" />
                     </div>
-                    <div className={styles.description}>
-                        <p>
-                            I am <strong>Software Engineer</strong> from India, currently based in Chicago, United States
-                        </p>
-                    </div>
-                    <span className={styles.talk_button}>
-                        <JButton
-                            buttonText={"Let's Talk"}
-                            functionCall={() => {
-                                const navigateTo = document.getElementById("contact-form");
-                                if (navigateTo) {
-                                    navigateTo.scrollIntoView({ behavior: "smooth" });
-                                }
-                            }}
+                    <svg viewBox="0 0 200 200" className={styles.text_circle}>
+                        <defs>
+                            <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+                        </defs>
+                        <text font-size="5.5" fill='var(--menu-items-selected)'>
+                            <textPath href="#circlePath" startOffset="0">
+                                • FULL STACK DEVELOPER • BASED IN CHICAGO
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+            </div>
+            {/* skills section */}
+            <div className={styles.skills_container}>
+                <div className={styles.skills_heading}>
+                    <BulletPoint />
+                    <p>My Skills</p>
+                </div>
+                <div className={styles.skills_item_containter}>
+                    <div className={styles.skill_1}>
+                        <SkillItem
+                            number={1}
+                            skill="Full-Stack Development"
+                            description="Have specialized in Full-stack development by developing end-to-end application using (Tools and skills)."
+                            icons={[nodeIcon, reactIcon, pyIcon, goIcon]}
                         />
-                    </span>
-                </span>
-            </div>
-            <div className={styles.services_container}>
-
-                <p className={styles.service_heading}>What do I do?</p>
-                <div className={styles.services_list}>
-                    {
-                        services_given?.map((data, index) => {
-                            return (
-                                <ServicesCard
-                                    key={data.id}
-                                    icon={data.icon}
-                                    title={data.title}
-                                    desc={data.desc}
-                                />
-                            )
-                        })
-                    }
-
-                </div>
-            </div>
-            <div className={styles.tools_container}>
-                <p className={styles.tools_heading}>Tools used</p>
-                <div className={styles.tools_list}>
-                    <span className={styles.tool_logo}>
-                        <img src={reactIcon} alt="icon" />
-                    </span>
-                    <span className={styles.tool_logo} style={{ width: "4.8rem", height: "4.8rem" }}>
-                        <img src={goIcon} alt="icon" />
-                    </span>
-                    <span className={styles.tool_logo}>
-                        <img src={nodeIcon} alt="icon" />
-                    </span>
-                    <span className={styles.tool_logo}>
-                        <img src={pyIcon} alt="icon" />
-                    </span>
-                    <span className={styles.tool_logo}>
-                        <img src={figIcon} alt="icon" />
-                    </span>
-
-                </div>
-            </div>
-            <div className={styles.works_container}>
-                <p className={styles.works_heading}>My works</p>
-                <div className={styles.works_list}>
-                    {
-                        works.map((work, index) => {
-                            return (
-                                <WorkCard
-                                    key={work.id}
-                                    number={index + 1}
-                                    thumbnail={work.icon}
-                                    title={work.title}
-                                    desc={work.desc}
-                                    date={work.date}
-                                />
-                            )
-                        })
-                    }
-
-                </div>
-            </div>
-            <div id="contact-form" className={styles.contact_container}>
-                <p className={styles.contact_heading}>Let's Talk!</p>
-                <div className={styles.contact_form}>
-                    <div className={styles.form}>
-
-                        <ContactForm />
                     </div>
-                    <hr className='solid' />
-                    {/* <p className={styles.or}>OR</p> */}
-                    <div className={styles.details}>
-                        <div className={styles.details_type}>
-                            <span>
-                                <MailOpen />
-                            </span>
-                            <span>
-                                <p>Email me</p>
-                                <p>jestinjoseph106@gmail.com</p>
-                            </span>
-                        </div>
-                        <div className={styles.details_type}>
-                            <span>
-                                <Phone />
-                            </span>
-                            <span>
-                                <p>Call/ Text me</p>
-                                <p className={styles.call_timing}>Mon - Fri from 8am to 5pm</p>
-                                <p>+1 (312) - 371 - 1452</p>
-                            </span>
-
-                        </div>
-                        <div className={styles.details_type}>
-                            <span>
-                                <Linkedin />
-                            </span>
-                            <span>
-                                <p>Ping me</p>
-                                <p>
-                                    <a href="https://www.linkedin.com/in/jestin-joseph01/" target="blank">LinkedIn</a>: Jestin Joseph
-                                </p>
-                            </span>
-                        </div>
-
+                    <div className={styles.skill_2}>
+                        <SkillItem
+                            number={2}
+                            skill="UI/UX Design"
+                            description="Experienced developing delightful interfaces collaborating with other designers and stakeholders"
+                            icons={[figIcon]}
+                        />
+                    </div>
+                    <div className={styles.skill_3}>
+                        <SkillItem
+                            number={3}
+                            skill="Mobile Apps"
+                            description="Building responsive, high-performance apps that provide seamless user experiences across all mobile platforms."
+                            icons={[flutterIcon]}
+                        />
                     </div>
                 </div>
+
             </div>
-            <p className={styles.copyRights}> &copy; Copyright, 2024 Jestin Joseph</p>
+
+            <div className={styles.projects_container}>
+                <div className={styles.projects_heading}>
+                    <BulletPoint />
+                    <p>Projects</p>
+                </div>
+
+                <div className={styles.projects_item_containter}>
+                    <WorkCard
+                        thumbnail={PillAngelImg}
+                        title="Pill Angel – Smart Medication Companion"
+                        desc="Pill Angel is a full-stack healthcare application designed to help patients and caregivers better understand and organize medications. Users can upload prescriptions, simplify dosage instructions into plain language, track medications, and stay on top of daily schedules through an intuitive and accessible interface."
+                    />
+                    <WorkCard
+                        thumbnail={TaskManagerImg}
+                        title="TaskIt - Task Management Application"
+                        desc="TaskIT is a task management web application that helps users organize their work by creating and prioritizing tasks, pinning important ones, and categorizing them."
+                    />
+
+                </div>
+            </div>
+            <Footer />
         </div>
     )
 }

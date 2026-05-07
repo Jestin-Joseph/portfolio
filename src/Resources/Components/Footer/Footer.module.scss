@@ -1,0 +1,101 @@
+.footer {
+    width: 100%;
+    color: var(--text-color);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .footer_left {
+
+        .footer_branding {
+            display: flex;
+            gap: 0.8em;
+            font-weight: 600;
+            font-size: 1.2em;
+            align-items: center;
+
+            .meImage_container {
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    transform: scale(1.7);
+                    margin-top: -40%;
+                    margin-left: 5%;
+                }
+            }
+        }
+
+        .footer_contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            p {
+
+                margin: 0;
+                font-size: 0.9em;
+                font-weight: 400;
+                font-family: Work Sans, sans-serif;
+            }
+        }
+
+    }
+
+    .footer_right {
+        display: flex;
+
+        .footer_icon_button {
+            cursor: pointer;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            border: none;
+
+            img {
+                width: 100%;
+                transform: scale(0.9);
+            }
+        }
+    }
+}
+
+.footer_copyright {
+    p {
+        font-size: 0.8em;
+        font-weight: 400;
+        font-family: Work Sans, sans-serif;
+        color: var(--menu-items-primary);
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .footer {
+        // flex-direction: column;
+        align-items: flex-end;
+        
+        padding: 0 1em;
+        .footer_right{
+            // width: 100%;
+            padding: 0;
+            justify-content: flex-end;
+            .footer_icon_button{
+                height: 50px;
+                width: 50px;
+            }
+        }
+    }
+
+    .footer_copyright {
+        text-align: center;
+       
+    }
+}

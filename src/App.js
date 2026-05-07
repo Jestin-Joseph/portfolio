@@ -1,10 +1,16 @@
 import './App.css';
 import MainView from './Resources/MainView/MainView';
+import { ThemeProvider } from './Resources/ThemeSettings/ThemeToggle';
+import { BrowserRouter } from 'react-router-dom';
 function App() {
   return (
-    <div className='mainContainer'>
-       <MainView/>
-    </div>
+    <BrowserRouter>
+      <ThemeProvider>
+        <div className='mainContainer'>
+          <MainView />
+        </div>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
