@@ -1,0 +1,51 @@
+.NowCard_container {
+    border: 1px solid var(--skill-item-border);
+    padding: 2em;
+    border-radius: 8px;
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    gap: 1.5em;
+    // align-items: center;
+
+    .NowCard_icon {
+        flex: 0 0 auto;
+        border-radius: 50%;
+        height: 45px;
+        width: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        padding: 0.2em;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .NowCard_content {
+        h3 {
+            margin: 0;
+        }
+
+        .skill_item_icons {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            gap: 1em;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .NowCard_container {
+        width: 100%;
+    }
+}
