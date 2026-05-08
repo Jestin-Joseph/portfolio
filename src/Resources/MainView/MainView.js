@@ -121,7 +121,7 @@ function MainView() {
                         <SkillItem
                             number={2}
                             skill="UI/UX Design"
-                            description="Experienced developing delightful interfaces collaborating with other designers and stakeholders"
+                            description="Experienced developing delightful interfaces collaborating with other designers and stakeholders."
                             icons={[figIcon]}
                         />
                     </div>

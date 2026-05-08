@@ -5,6 +5,8 @@
   --menu-items-selected: black;
   --skill-item-border: rgba(222, 222, 222, 1);
   --skill-item-number-background: rgba(242, 255, 240, 1);
+  --timeline-foot-color: rgb(2, 179, 2);
+  --timeline-foot-background: rgb(243, 255, 243);
 }
 
 [data-theme='dark'] {
@@ -14,6 +16,9 @@
   --menu-items-selected: white;
   --skill-item-border: rgba(65, 65, 65, 1);
   --skill-item-number-background: rgba(242, 255, 240, 1);
+  --timeline-foot-color: rgb(243, 255, 243);
+   --timeline-foot-background: transparent;
+  ;
 }
 
 body {
